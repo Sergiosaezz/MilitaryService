@@ -3,20 +3,32 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CompanyDTO } from '../domain/DTOs/company.dto';
+import { DepartmentDTO } from '../domain/DTOs/department.dto';
+import { ServiceDTO } from '../domain/DTOs/service.dto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CompaniesService {
+export class MockService {
+  baseUrl = 'assets/mock/';
+
   constructor(private readonly http: HttpClient) {}
 
-  findAll(): Observable<CompanyDTO[]> {
+  loadCompanies(): Observable<CompanyDTO[]> {
     return this.http
-      .get<any>('assets/mock/companies.json')
+      .get<any>(`${this.baseUrl}companies.json`)
       .pipe(map((data) => data.companies as CompanyDTO[]));
   }
 
-  findOne() {
-    return;
+  loadDepartments(): Observable<DepartmentDTO[]> {
+    return this.http
+      .get<any>(`${this.baseUrl}departments.json`)
+      .pipe(map((data) => data.departments as DepartmentDTO[]));
+  }
+
+  loadServices(): Observable<ServiceDTO[]> {
+    return this.http
+      .get<any>(`${this.baseUrl}services.json`)
+      .pipe(map((data) => data.services as ServiceDTO[]));
   }
 }
