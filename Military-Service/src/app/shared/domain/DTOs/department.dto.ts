@@ -1,5 +1,4 @@
-export interface DepartmentDTO
-    {
-        id: string,
-        name: string
-    }
+export interface DepartmentDTO {
+  id: string;
+  name: string;
+}

@@ -1,5 +1,4 @@
-export interface ServiceDTO
-{
-    id: string,
-    description: string
+export interface ServiceDTO {
+  id: string;
+  description: string;
 }
