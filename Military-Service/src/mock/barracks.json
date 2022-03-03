@@ -21,11 +21,13 @@
                     "services": [
                         {
                             "id": "001",
+                            "serviceId": "001",
                             "description": "Guardia",
                             "date": "01/01/2022"
                         },
                         {
                             "id": "002",
+                            "serviceId": "002",
                             "description": "Limpieza armamento",
                             "date": "01/02/2022"
                         }
@@ -47,11 +49,13 @@
                     "services": [
                         {
                             "id": "003",
+                            "serviceId": "001",
                             "description": "Guardia",
                             "date": "01/01/2022"
                         },
                         {
                             "id": "004",
+                            "serviceId": "003",
                             "description": "Adiestramiento de peloton",
                             "date": "01/02/2022"
                         }
@@ -80,11 +84,13 @@
                     "services": [
                         {
                             "id": "005",
+                            "serviceId": "001",
                             "description": "Guardia",
                             "date": "01/01/2022"
                         },
                         {
                             "id": "006",
+                            "serviceId": "004",
                             "description": "Tactica militar",
                             "date": "22/02/2022"
                         }
@@ -106,11 +112,13 @@
                     "services": [
                         {
                             "id": "007",
+                            "serviceId": "001",
                             "description": "Guardia",
                             "date": "05/01/2021"
                         },
                         {
                             "id": "008",
+                            "serviceId": "003",
                             "description": "Adiestramiento de peloton",
                             "date": "12/03/2022"
                         }
