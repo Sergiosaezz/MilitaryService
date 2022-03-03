@@ -1,0 +1,12 @@
+{
+    "companies":[
+        {
+            "id": "001",
+            "activity": "Infanteria ligera"
+        },
+        {
+            "id": "002",
+            "activity": "Infanteria pesada"
+        }
+    ]
+}
