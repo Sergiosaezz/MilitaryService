@@ -1,0 +1,122 @@
+{
+    "barracks" : [
+        {
+            "id": "001",
+            "name" : "Cuartel General Terrestre",
+            "location": "Malaga",
+            "soldiers" : [
+                {
+                    "id": "001",
+                    "name" : "Miguel Angel",
+                    "surname": "Lopez Ariza",
+                    "rank" : "Soldado raso",
+                    "department": {
+                        "id": "001",
+                        "name": "Ejercito de Tierra"
+                    },
+                    "company": {
+                        "id": "001",
+                        "activity": "Infanteria ligera"
+                    },
+                    "services": [
+                        {
+                            "id": "001",
+                            "description": "Guardia",
+                            "date": "01/01/2022"
+                        },
+                        {
+                            "id": "002",
+                            "description": "Limpieza armamento",
+                            "date": "01/02/2022"
+                        }
+                    ]
+                },
+                {
+                    "id": "002",
+                    "name" : "Sergio",
+                    "surname": "Saez Trigueros",
+                    "rank" : "Teniente",
+                    "department": {
+                        "id": "002",
+                        "name": "Ejercito de Aire"
+                    },
+                    "company": {
+                        "id": "002",
+                        "activity": "Infanteria pesada"
+                    },
+                    "services": [
+                        {
+                            "id": "003",
+                            "description": "Guardia",
+                            "date": "01/01/2022"
+                        },
+                        {
+                            "id": "004",
+                            "description": "Adiestramiento de peloton",
+                            "date": "01/02/2022"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "002",
+            "name" : "Cuartel Legionario Nacional",
+            "location": "Ceuta",
+            "soldiers" : [
+                {
+                    "id": "003",
+                    "name" : "Juan",
+                    "surname": "Rueda Castro",
+                    "rank" : "Coronel",
+                    "department": {
+                        "id": "003",
+                        "name": "Armada"
+                    },
+                    "company": {
+                        "id": "001",
+                        "activity": "Infanteria ligera"
+                    },
+                    "services": [
+                        {
+                            "id": "005",
+                            "description": "Guardia",
+                            "date": "01/01/2022"
+                        },
+                        {
+                            "id": "006",
+                            "description": "Tactica militar",
+                            "date": "22/02/2022"
+                        }
+                    ]
+                },
+                {
+                    "id": "004",
+                    "name" : "Francisco",
+                    "surname": "Perez Garcia",
+                    "rank" : "Capitan",
+                    "department": {
+                        "id": "001",
+                        "name": "Ejercito de Tierra"
+                    },
+                    "company": {
+                        "id": "002",
+                        "activity": "Infanteria pesada"
+                    },
+                    "services": [
+                        {
+                            "id": "007",
+                            "description": "Guardia",
+                            "date": "05/01/2021"
+                        },
+                        {
+                            "id": "008",
+                            "description": "Adiestramiento de peloton",
+                            "date": "12/03/2022"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
