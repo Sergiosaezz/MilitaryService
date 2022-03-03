@@ -9,9 +9,11 @@ import { CompaniesService } from './shared/services/companies.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  companies = new Observable<CompanyDTO[]>();
+
   constructor(private readonly companiesService: CompaniesService) {}
 
   ngOnInit(): void {
-    this.companiesService.findAll().subscribe((data) => console.log(data));
+    this.companies = this.companiesService.findAll();
   }
 }
