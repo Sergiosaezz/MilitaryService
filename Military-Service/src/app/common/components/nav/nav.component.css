@@ -1,5 +1,6 @@
 nav {
   display: flex;
+  height: 8vh;
 }
 .clickable:hover {
   background-color: rgb(98, 98, 243);

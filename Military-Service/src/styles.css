@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 app-root {
   display: grid;
-  grid-template-rows: 15vh 7vh 78vh;
+  grid-template-rows: 15vh 8vh 77vh;
   gap: 0px 0px;
   grid-auto-flow: column;
   grid-template-areas:
