@@ -1,7 +1,9 @@
-<div *ngFor="let company of companies | async">
-    {{company.activity}}
+<div *ngFor="let soldier of soldiers | async">
+    <div *ngFor="let service of soldier.services">
+        {{service.description}}
+    </div>
 </div>
-
+<!-- 
 <div *ngIf="company | async as company">
     {{company.activity}}
-</div>
+</div> -->

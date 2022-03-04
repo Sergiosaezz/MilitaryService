@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CompanyDTO } from './shared/domain/DTOs/company.dto';
-import { MockService } from './shared/services/companies.service';
+import { SoldierDTO } from './shared/domain/DTOs/soldier.dto';
+import { MockService } from './shared/services/mock.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,11 @@ import { MockService } from './shared/services/companies.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  companies = new Observable<CompanyDTO[]>();
-  company = new Observable<CompanyDTO>();
+  soldiers = new Observable<SoldierDTO[]>();
 
   constructor(private readonly mockService: MockService) {}
 
   ngOnInit(): void {
-    this.companies = this.companiesService.findAll();
-    this.company = this.companiesService.findOne('001');
+    this.soldiers = this.mockService.loadSoldiers();
   }
 }
