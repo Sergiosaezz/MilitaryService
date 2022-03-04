@@ -10,15 +10,9 @@ import { MockService } from './shared/services/mock.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  soldiers = new Observable<SoldierDTO[]>();
-
-  constructor(
-    private readonly mockService: MockService,
-    private readonly dexieService: DexieService
-  ) {}
+  constructor(private readonly dexieService: DexieService) {}
 
   ngOnInit(): void {
-    this.soldiers = this.mockService.loadSoldiers();
     this.dexieService.loadData();
   }
 }
