@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceDTO } from 'src/app/shared/domain/DTOs/service.dto';
+import { MilitaryServicesService } from 'src/app/shared/services/military-services.service';
 
 @Component({
   selector: 'app-services-home',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./services-home.component.css'],
 })
 export class ServicesHomeComponent implements OnInit {
-  constructor() {}
+  militaryServices!: ServiceDTO[];
 
-  ngOnInit(): void {}
+  constructor(private readonly servicesService: MilitaryServicesService) {}
+
+  ngOnInit(): void {
+    this.servicesService
+      .findAll()
+      .subscribe((servicesData) => (this.militaryServices = servicesData));
+  }
 }

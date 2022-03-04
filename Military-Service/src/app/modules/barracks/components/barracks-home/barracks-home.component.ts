@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BarrackDTO } from 'src/app/shared/domain/DTOs/barrack.dto';
+import { BarracksService } from 'src/app/shared/services/barracks.service';
 
 @Component({
   selector: 'app-barracks-home',
@@ -6,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./barracks-home.component.css'],
 })
 export class BarracksHomeComponent implements OnInit {
-  constructor() {}
+  barracks!: BarrackDTO[];
+  //barracks!: any
 
-  ngOnInit(): void {}
+  constructor(private readonly barrackService: BarracksService) {}
+
+  ngOnInit(): void {
+    this.barrackService
+      .findAll()
+      .subscribe((barracksData) => (this.barracks = barracksData));
+
+    //this.barracks = this.barracksService.findAll()
+  }
 }
