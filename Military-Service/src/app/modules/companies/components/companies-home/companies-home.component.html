@@ -1,1 +1,5 @@
-<p>companies works!</p>
+<div *ngFor="let company of companies">
+    <p>
+        {{company.id}} - {{company.activity}}
+    </p>
+</div>
