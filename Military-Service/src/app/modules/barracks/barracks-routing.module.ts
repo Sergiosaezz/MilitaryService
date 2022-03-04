@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BarracksAddComponent } from './components/barracks-add/barracks-add.component';
 import { BarracksHomeComponent } from './components/barracks-home/barracks-home.component';
 
-const routes: Routes = [{ path: '', component: BarracksHomeComponent }];
+const routes: Routes = [
+  { path: '', component: BarracksHomeComponent },
+  { path: 'add', component: BarracksAddComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
