@@ -1,0 +1,14 @@
+{
+    "barracks": [
+        {
+            "id": "001",
+            "name": "Cuartel General Terrestre",
+            "location": "Malaga"
+        },
+        {
+            "id": "002",
+            "name": "Cuartel Legionario Nacional",
+            "location": "Ceuta"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "services": [
+        {
+            "id": "001",
+            "description": "Guardia"
+        },
+        {
+            "id": "002",
+            "description": "Limpieza armamento"
+        },
+        {
+            "id": "003",
+            "description": "Adiestramiento de peloton"
+        },
+        {
+            "id": "004",
+            "description": "Tactica militar"
+        }
+    ]
+}

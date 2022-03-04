@@ -1,0 +1,7 @@
+<div *ngFor="let company of companies | async">
+    {{company.activity}}
+</div>
+
+<div *ngIf="company | async as company">
+    {{company.activity}}
+</div>
