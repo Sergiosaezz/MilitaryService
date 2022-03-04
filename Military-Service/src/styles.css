@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+app-root {
+  display: grid;
+  grid-template-rows: 15vh 10vh 75vh;
+  gap: 0px 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content";
+}

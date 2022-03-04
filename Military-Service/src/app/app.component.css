@@ -1,0 +1,12 @@
+app-header {
+  grid-area: header;
+  background-image: url("../assets/Military-Header.jpg");
+}
+
+app-nav {
+  grid-area: nav;
+}
+
+.router-wrap {
+  grid-area: content;
+}
