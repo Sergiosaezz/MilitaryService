@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SoldiersHomeComponent } from './components/soldiers-home/soldiers-home.component';
+import { SoldierAddComponent } from './pages/soldier-add/soldier-add.component';
+import { SoldiersHomeComponent } from './pages/soldiers-home/soldiers-home.component';
 
-const routes: Routes = [{ path: '', component: SoldiersHomeComponent }];
+const routes: Routes = [
+  { path: '', component: SoldiersHomeComponent },
+  { path: 'add', component: SoldierAddComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
