@@ -50,7 +50,7 @@ export class CompaniesHomeComponent implements OnInit {
   }
 
   deleteCompany(company: CompanyDTO) {
-    const dialogRef = this.deleteDialog
+    this.deleteDialog
       .open(DialogComponent, {
         width: '350px',
         data: company,
