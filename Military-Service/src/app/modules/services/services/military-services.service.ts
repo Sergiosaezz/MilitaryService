@@ -17,7 +17,7 @@ export class MilitaryServicesService {
     this.dexieService.servicesStore.delete(id);
   }
 
-  edit(service: ServiceDTO) {
+  addOrEditIfExists(service: ServiceDTO) {
     this.dexieService.servicesStore.put(service, service.id);
   }
 
