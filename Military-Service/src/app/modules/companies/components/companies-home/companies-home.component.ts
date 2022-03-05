@@ -17,4 +17,8 @@ export class CompaniesHomeComponent implements OnInit {
       .findAll()
       .subscribe((companiesData) => (this.companies = companiesData));
   }
+
+  newCompany() {
+    console.log('que aparezca el formulario');
+  }
 }
