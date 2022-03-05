@@ -44,13 +44,8 @@ export class CompaniesHomeComponent implements OnInit {
   }
 
   addOrUpdateCompany(company: CompanyDTO) {
-    if (this.formType === ADD_FORM) {
-      company.id = uuidv4();
-      this.companiesService.add(company);
-    }
-    if (this.formType === EDIT_FORM) {
-      this.companiesService.edit(company);
-    }
+    if (this.formType === ADD_FORM) company.id = uuidv4();
+    this.companiesService.addOrEditIfExist(company);
     this.closeForm();
   }
 

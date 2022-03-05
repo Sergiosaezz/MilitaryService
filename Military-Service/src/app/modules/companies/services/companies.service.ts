@@ -17,7 +17,7 @@ export class CompaniesService {
     this.dexieService.companiesStore.delete(id);
   }
 
-  edit(company: CompanyDTO) {
+  addOrEditIfExist(company: CompanyDTO) {
     this.dexieService.companiesStore.put(company, company.id);
   }
 
