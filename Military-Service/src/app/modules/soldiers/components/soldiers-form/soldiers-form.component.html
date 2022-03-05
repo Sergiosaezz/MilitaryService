@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container d-flex justify-content-center">
     <form class="bg-success rounded p-3 col-7" [formGroup]="formControl">
         <h3 class="text-center text-white font-weight-bold">
             {{ pageType }} soldado
         </h3>
-        <div class="form-group d-flex justify-content-around">
+        <div class="form-group d-flex justify-content-around mt-3">
             <div class="d-flex flex-column">
                 <label class=" text-white" for="name">Nombre</label>
                 <input required formControlName="name" #name type="text" class="form-control"
@@ -42,7 +42,7 @@
                 </select>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around mt-4">
             <button type="submit" class="btn btn-light" (click)="sendData()">
                 Añadir
             </button>
