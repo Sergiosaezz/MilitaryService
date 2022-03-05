@@ -14,10 +14,7 @@
       <tr *ngFor="let service of services">
         <td>{{ service.description }}</td>
         <td>
-          <button
-            class="btn btn-warning mr-3"
-            (click)="activateEditForm(service)"
-          >
+          <button class="btn btn-warning mr-3" (click)="activateEditForm(service)">
             Editar
           </button>
           <button class="btn btn-danger" (click)="deleteDepartment(service)">
@@ -27,12 +24,7 @@
       </tr>
     </tbody>
   </table>
-  <app-form-services
-    class="col-6 d-flex align-items-center justify-content-around"
-    *ngIf="isFormActive"
-    [pageType]="formType"
-    [serviceValue]="serviceToEdit"
-    (dataResult)="addOrUpdateService($event)"
-    (cancelAction)="closeForm()"
-  ></app-form-services>
+  <app-form-services class="col-6 d-flex align-items-center justify-content-around" *ngIf="isFormActive"
+    [pageType]="formType" [serviceValue]="serviceToEdit" (dataResult)="addOrUpdateService($event)"
+    (cancelAction)="closeForm()"></app-form-services>
 </div>

@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: 'services',
     loadChildren: () =>
-      import('./modules/services/services.module').then(
+      import('./modules/military-services/services.module').then(
         (m) => m.ServicesModule
       ),
   },
