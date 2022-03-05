@@ -36,15 +36,11 @@ export class CompaniesHomeComponent implements OnInit {
     this.openForm();
   }
 
-  activateEditForm(idCompany: string) {
+  activateEditForm(company: CompanyDTO) {
     this.closeForm();
-    this.companiesService
-      .findOne(idCompany)
-      .then((company) => (this.companyToEdit = company as CompanyDTO))
-      .then(() => {
-        this.formType = EDIT_FORM;
-        this.openForm();
-      });
+    this.formType = EDIT_FORM;
+    this.companyToEdit = company;
+    this.openForm();
   }
 
   addOrUpdateCompany(company: CompanyDTO) {
