@@ -17,7 +17,7 @@ export class DepartmentsService {
     this.dexieService.departmentsStore.delete(id);
   }
 
-  edit(department: DepartmentDTO) {
+  addOrEditIfExists(department: DepartmentDTO) {
     this.dexieService.departmentsStore.put(department, department.id);
   }
 

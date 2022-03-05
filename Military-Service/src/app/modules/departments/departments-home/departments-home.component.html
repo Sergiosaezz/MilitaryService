@@ -1,3 +1,41 @@
-<div *ngFor="let department of departments">
-    <p>{{department.id}} - {{department.name}}</p>
+<div
+  [ngClass]="{ 'd-flex justify-content-between': isFormActive }"
+  class="mx-5"
+>
+  <table class="table table-hover col-6">
+    <thead>
+      <tr>
+        <th scope="col">Cuerpo</th>
+        <th class="d-flex justify-content-between align-items-end" scope="col">
+          <button class="btn btn-success" (click)="activateAddForm()">
+            Añadir un cuerpo
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments">
+        <td>{{ department.name }}</td>
+        <td>
+          <button
+            class="btn btn-warning mr-3"
+            (click)="activateEditForm(department)"
+          >
+            Editar
+          </button>
+          <button class="btn btn-danger" (click)="deleteDepartment(department)">
+            Borrar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-form-department
+    class="col-6 d-flex align-items-center justify-content-around"
+    *ngIf="isFormActive"
+    [pageType]="formType"
+    [departmentValue]="departmentToEdit"
+    (dataResult)="addOrUpdateDepartment($event)"
+    (cancelAction)="closeForm()"
+  ></app-form-department>
 </div>

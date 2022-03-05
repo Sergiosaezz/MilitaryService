@@ -5,7 +5,7 @@ import { ADD_FORM, EDIT_FORM } from 'src/app/common/constants';
 import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
 import { DepartmentsService } from '../services/departments.service';
 import { v4 as uuidv4 } from 'uuid';
-import { DialogComponent } from '../../companies/components/dialog/dialog.component';
+import { DialogComponent } from '../../departments/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-departments-home',
@@ -43,18 +43,13 @@ export class DepartmentsHomeComponent implements OnInit {
     this.openForm();
   }
 
-  addOrUpdateCompany(company: DepartmentDTO) {
-    if (this.formType === ADD_FORM) {
-      company.id = uuidv4();
-      this.departmentsService.add(company);
-    }
-    if (this.formType === EDIT_FORM) {
-      this.departmentsService.edit(company);
-    }
+  addOrUpdateDepartment(company: DepartmentDTO) {
+    if (this.formType === ADD_FORM) company.id = uuidv4();
+    this.departmentsService.addOrEditIfExists(company);
     this.closeForm();
   }
 
-  deleteCompany(company: DepartmentDTO) {
+  deleteDepartment(company: DepartmentDTO) {
     const dialogRef = this.deleteDialog
       .open(DialogComponent, {
         width: '350px',
@@ -64,7 +59,7 @@ export class DepartmentsHomeComponent implements OnInit {
       .subscribe((confirm) => {
         if (confirm) {
           this.departmentsService.delete(company.id);
-          this.snackMsg.open('Compañia Eliminada', undefined, {
+          this.snackMsg.open('Cuerpo eliminado', undefined, {
             duration: 1000,
           });
         }
