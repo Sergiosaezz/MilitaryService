@@ -17,7 +17,7 @@ export class SoldiersService {
     this.dexieService.soldiersStore.delete(id);
   }
 
-  edit(soldier: SoldierDTO) {
+  addOrEditIfExists(soldier: SoldierDTO) {
     this.dexieService.soldiersStore.put(soldier, soldier.id);
   }
 
