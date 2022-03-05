@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DepartmentsRouting } from './departments-routing.module';
 import { DepartmentsHomeComponent } from './components/departments-home/departments-home.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [DepartmentsHomeComponent],
-  imports: [CommonModule, DepartmentsRouting],
+  imports: [SharedModule, DepartmentsRouting],
 })
 export class DepartmentsModule {}

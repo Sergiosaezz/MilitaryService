@@ -36,30 +36,21 @@ export class CompaniesHomeComponent implements OnInit {
     this.openForm();
   }
 
-  activateEditForm(idCompany: string) {
+  activateEditForm(company: CompanyDTO) {
     this.closeForm();
-    this.companiesService
-      .findOne(idCompany)
-      .then((company) => (this.companyToEdit = company as CompanyDTO))
-      .then(() => {
-        this.formType = EDIT_FORM;
-        this.openForm();
-      });
+    this.formType = EDIT_FORM;
+    this.companyToEdit = company;
+    this.openForm();
   }
 
   addOrUpdateCompany(company: CompanyDTO) {
-    if (this.formType === ADD_FORM) {
-      company.id = uuidv4();
-      this.companiesService.add(company);
-    }
-    if (this.formType === EDIT_FORM) {
-      this.companiesService.edit(company);
-    }
+    if (this.formType === ADD_FORM) company.id = uuidv4();
+    this.companiesService.addOrEditIfExist(company);
     this.closeForm();
   }
 
   deleteCompany(company: CompanyDTO) {
-    const dialogRef = this.deleteDialog
+    this.deleteDialog
       .open(DialogComponent, {
         width: '350px',
         data: company,

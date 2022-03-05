@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ServicesRouting } from './services-routing.module';
 import { ServicesHomeComponent } from './components/services-home/services-home.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [ServicesHomeComponent],
-  imports: [CommonModule, ServicesRouting],
+  imports: [SharedModule, ServicesRouting],
 })
 export class ServicesModule {}
