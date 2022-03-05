@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BarracksAddComponent implements OnInit {
   formControl!: FormGroup;
+  visible: boolean = false;
 
   constructor(private readonly fb: FormBuilder) {}
 

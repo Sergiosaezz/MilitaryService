@@ -11,6 +11,5 @@ app-nav {
 .router-wrap {
   margin: 0;
   grid-area: content;
-  background-color: #eee;
   padding: 10px;
 }
