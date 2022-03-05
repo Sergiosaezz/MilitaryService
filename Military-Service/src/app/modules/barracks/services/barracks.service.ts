@@ -18,7 +18,7 @@ export class BarracksService {
     this.dexieService.barracksStore.delete(id);
   }
 
-  edit(barrack: BarrackDTO) {
+  addOrEditIfExists(barrack: BarrackDTO) {
     this.dexieService.barracksStore.put(barrack, barrack.id);
   }
 

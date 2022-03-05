@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BarracksRouting } from './barracks-routing.module';
-import { BarracksHomeComponent } from './components/barracks-home/barracks-home.component';
-import { BarracksAddComponent } from './components/barracks-add/barracks-add.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { BarracksHomeComponent } from './barracks-home/barracks-home.component';
+import { BarracksFormComponent } from './components/form/barracks-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
-  declarations: [BarracksHomeComponent, BarracksAddComponent],
+  declarations: [BarracksHomeComponent, BarracksFormComponent, DialogComponent],
   imports: [SharedModule, BarracksRouting],
 })
 export class BarracksModule {}
