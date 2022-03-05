@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BarrackDTO } from 'src/app/shared/domain/DTOs/barrack.dto';
 import { BarracksService } from '../../services/barracks.service';
 
@@ -10,6 +9,8 @@ import { BarracksService } from '../../services/barracks.service';
 })
 export class BarracksHomeComponent implements OnInit {
   barracks!: BarrackDTO[];
+  visibleForm: boolean = false;
+
   //barracks!: any
 
   constructor(private readonly barrackService: BarracksService) {}
