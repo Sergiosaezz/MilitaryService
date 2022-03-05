@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+  <h2>Estas seguro de eliminar la compañia:</h2>
+  <p>{{ companyToDelete.activity }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="deleteCompany()" cdkFocusInitial>Si</button>
+  <button mat-button (click)="cancelDelete()">No</button>
+</div>
