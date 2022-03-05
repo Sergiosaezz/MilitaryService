@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ADD_FORM, EDIT_FORM } from 'src/app/common/constants';
 
 @Component({
   selector: 'app-companies-home',
@@ -30,11 +31,9 @@ export class CompaniesHomeComponent implements OnInit {
 
   activateAddForm() {
     this.closeForm();
-    this.formType = 'Agregar';
+    this.formType = ADD_FORM;
     this.companyToEdit = { id: '', activity: '' };
-    setTimeout(() => {
-      this.openForm();
-    }, 1);
+    this.openForm();
   }
 
   activateEditForm(idCompany: string) {
@@ -43,17 +42,17 @@ export class CompaniesHomeComponent implements OnInit {
       .findOne(idCompany)
       .then((company) => (this.companyToEdit = company as CompanyDTO))
       .then(() => {
-        this.formType = 'Editar';
+        this.formType = EDIT_FORM;
         this.openForm();
       });
   }
 
   addOrUpdateCompany(company: CompanyDTO) {
-    if (this.formType === 'Agregar') {
+    if (this.formType === ADD_FORM) {
       company.id = uuidv4();
       this.companiesService.add(company);
     }
-    if (this.formType === 'Editar') {
+    if (this.formType === EDIT_FORM) {
       this.companiesService.edit(company);
     }
     this.closeForm();
@@ -77,7 +76,9 @@ export class CompaniesHomeComponent implements OnInit {
   }
 
   openForm() {
-    this.isFormActive = true;
+    setTimeout(() => {
+      this.isFormActive = true;
+    }, 1);
   }
 
   closeForm() {
