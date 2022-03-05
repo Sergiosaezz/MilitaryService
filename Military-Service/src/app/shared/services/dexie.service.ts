@@ -38,41 +38,31 @@ export class DexieService extends Dexie {
 
   loadBarracks() {
     this.mockService.loadBarracks().subscribe((barracks) => {
-      for (let barrack of barracks) {
-        this.barracksStore.add(barrack);
-      }
+      this.barracksStore.bulkPut(barracks);
     });
   }
 
   loadCompanies() {
     this.mockService.loadCompanies().subscribe((companies) => {
-      for (let company of companies) {
-        this.companiesStore.add(company);
-      }
+      this.companiesStore.bulkPut(companies);
     });
   }
 
   loadDepartments() {
     this.mockService.loadDepartments().subscribe((departments) => {
-      for (let department of departments) {
-        this.departmentsStore.add(department);
-      }
+      this.departmentsStore.bulkPut(departments);
     });
   }
 
   loadServices() {
     this.mockService.loadServices().subscribe((services) => {
-      for (let service of services) {
-        this.servicesStore.add(service);
-      }
+      this.servicesStore.bulkPut(services);
     });
   }
 
   loadSoldiers() {
     this.mockService.loadSoldiers().subscribe((soldiers) => {
-      for (let soldier of soldiers) {
-        this.soldiersStore.add(soldier);
-      }
+      this.soldiersStore.bulkPut(soldiers);
     });
   }
 }
