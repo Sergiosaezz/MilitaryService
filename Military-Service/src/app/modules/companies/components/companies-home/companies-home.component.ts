@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyDTO } from 'src/app/shared/domain/DTOs/company.dto';
-import { CompaniesService } from 'src/app/shared/services/companies.service';
+import { CompaniesService } from 'src/app/modules/companies/services/companies.service';
 
 @Component({
   selector: 'app-companies-home',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { liveQuery } from 'dexie';
-import { DepartmentDTO } from '../domain/DTOs/department.dto';
-import { DexieService } from './dexie.service';
+import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
+import { DexieService } from 'src/app/shared/services/dexie.service';
 
 @Injectable({
   providedIn: 'root',

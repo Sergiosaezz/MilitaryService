@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SoldierDTO } from 'src/app/shared/domain/DTOs/soldier.dto';
-import { SoldiersService } from 'src/app/shared/services/soldiers.service';
+import { SoldiersService } from '../../services/soldiers.service';
 
 @Component({
   selector: 'app-soldiers-home',

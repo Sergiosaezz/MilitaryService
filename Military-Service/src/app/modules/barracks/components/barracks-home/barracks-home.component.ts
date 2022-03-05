@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BarrackDTO } from 'src/app/shared/domain/DTOs/barrack.dto';
-import { BarracksService } from 'src/app/shared/services/barracks.service';
+import { BarracksService } from '../../services/barracks.service';
 
 @Component({
   selector: 'app-barracks-home',
