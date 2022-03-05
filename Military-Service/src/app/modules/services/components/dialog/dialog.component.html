@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+  <h2>Estas seguro de eliminar el servicio:</h2>
+  <p>{{ serviceToDelete.description }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="deleteService()" cdkFocusInitial>Si</button>
+  <button mat-button (click)="cancelDelete()">No</button>
+</div>

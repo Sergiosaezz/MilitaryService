@@ -1,18 +1,24 @@
 <form class="bg-success rounded p-3 col-6" [formGroup]="formControl">
-  <h3 class="text-center text-white font-weight-bold">{{ pageType }} Cuerpo</h3>
+  <h3 class="text-center text-white font-weight-bold">
+    {{ pageType }} Servicio
+  </h3>
   <div class="form-group col">
-    <label class="text-white" for="name">Nombre del cuerpo:</label>
+    <label class="text-white" for="name">Descripcion del servicio:</label>
     <input
-      formControlName="name"
+      formControlName="description"
       type="text"
       class="form-control"
-      #name
-      placeholder="Nombre"
+      #description
+      placeholder="Descripcion"
     />
   </div>
 
   <div class="d-flex justify-content-around">
-    <button type="button" class="btn btn-light" (click)="sendData(name.value)">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="sendData(description.value)"
+    >
       Añadir
     </button>
 

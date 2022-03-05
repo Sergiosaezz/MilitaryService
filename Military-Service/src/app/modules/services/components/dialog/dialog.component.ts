@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CompanyDTO } from 'src/app/shared/domain/DTOs/company.dto';
-import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
+import { ServiceDTO } from 'src/app/shared/domain/DTOs/service.dto';
 
 @Component({
   selector: 'app-dialog',
@@ -10,10 +9,10 @@ import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
 export class DialogComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public departmentToDelete: DepartmentDTO
+    @Inject(MAT_DIALOG_DATA) public serviceToDelete: ServiceDTO
   ) {}
 
-  public deleteCDepartment() {
+  public deleteService() {
     this.dialogRef.close(true);
   }
 
