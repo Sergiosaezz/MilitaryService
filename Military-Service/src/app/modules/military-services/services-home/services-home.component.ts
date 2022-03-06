@@ -59,7 +59,7 @@ export class ServicesHomeComponent implements OnInit {
       .subscribe((confirm) => {
         if (confirm) {
           this.militaryService.delete(company.id);
-          this.snackMsg.open('Cuerpo eliminado', undefined, {
+          this.snackMsg.open('Servicio eliminado', undefined, {
             duration: 1000,
           });
         }
