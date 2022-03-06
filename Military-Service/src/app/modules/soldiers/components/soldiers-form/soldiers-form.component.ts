@@ -16,45 +16,44 @@ import { SoldierDTO } from 'src/app/shared/domain/DTOs/soldier.dto';
 export class SoldiersFormComponent implements OnInit {
   @Input() pageType = '';
   @Input() soldierValue!: SoldierDTO;
+  @Input() barracks!: BarrackDTO[];
+  @Input() companies!: CompanyDTO[];
+  @Input() departments!: DepartmentDTO[];
   @Output() dataResult = new EventEmitter<SoldierDTO>();
   @Output() cancelAction = new EventEmitter<any>();
   formControl!: FormGroup;
-  barracks!: BarrackDTO[];
-  companies!: CompanyDTO[];
-  departments!: DepartmentDTO[];
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly barrackService: BarracksService,
-    private readonly companyService: CompaniesService,
-    private readonly departmentService: DepartmentsService
-  ) {}
+  constructor(private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.loadData();
-    this.formControl = this.fb.group({
-      name: [this.soldierValue.name, Validators.required],
-      surname: [this.soldierValue.surname, Validators.required],
-      rank: [this.soldierValue.rank, Validators.required],
-      barrack: [this.soldierValue.barrack.name, Validators.required],
-      company: [this.soldierValue.company.activity, Validators.required],
-      department: [this.soldierValue.department.name, Validators.required],
+    this.formControl = this.getFormControlWithoutValues();
+    if (this.soldierValue) this.setSoldierValuesToFormControl();
+  }
+
+  getFormControlWithoutValues() {
+    return this.fb.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      rank: ['', Validators.required],
+      barrack: ['', Validators.required],
+      department: ['', Validators.required],
+      company: ['', Validators.required],
     });
   }
 
-  loadData() {
-    this.barrackService
-      .findAll()
-      .subscribe((barracksData) => (this.barracks = barracksData));
-    this.companyService
-      .findAll()
-      .subscribe((companiesData) => (this.companies = companiesData));
-    this.departmentService
-      .findAll()
-      .subscribe((departmentsData) => (this.departments = departmentsData));
+  setSoldierValuesToFormControl() {
+    this.formControl.setValue({
+      name: this.soldierValue.name,
+      surname: this.soldierValue.surname,
+      rank: this.soldierValue.rank,
+      barrack: this.soldierValue.barrack.name,
+      department: this.soldierValue.department.name,
+      company: this.soldierValue.company.activity,
+    });
   }
 
-  sendData() {
+  sendData(soldier: SoldierDTO) {
+    this.soldierValue = soldier;
     this.dataResult.emit(this.soldierValue);
   }
 

@@ -1,54 +1,109 @@
 <div class="container d-flex justify-content-center">
-    <form class="bg-success rounded p-3 col-7" [formGroup]="formControl">
-        <h3 class="text-center text-white font-weight-bold">
-            {{ pageType }} soldado
-        </h3>
-        <div class="form-group d-flex justify-content-around mt-3">
-            <div class="d-flex flex-column">
-                <label class=" text-white" for="name">Nombre</label>
-                <input required formControlName="name" #name type="text" class="form-control"
-                    placeholder="Inserte un nombre" />
-            </div>
-            <div class="d-flex flex-column">
-                <label class="text-white" for="surname">Apellido</label>
-                <input required formControlName="surname" #surname type="text" class="form-control"
-                    placeholder="Inserte apellido" />
-            </div>
-        </div>
-        <div class="form-group d-flex justify-content-around">
-            <div class="d-flex flex-column">
-                <label class="text-white" for="rank">Rango</label>
-                <input required formControlName="rank" #rank type="text" class="form-control" id="rank"
-                    placeholder="Inserte el rango" />
-            </div>
-            <div class="d-flex flex-column">
-                <label class="text-white" for="barracks">Cuartel</label>
-                <select class="custom-select" aria-label="Selecciona el cuartel">
-                    <option *ngFor="let barrack of barracks" value={{barrack.id}}>{{barrack.name}}</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group d-flex justify-content-around">
-            <div class="d-flex flex-column">
-                <label class="text-white" for="surname">Cuerpo</label>
-                <select class="custom-select" aria-label="Selecciona el cuerpo">
-                    <option *ngFor="let department of departments" value={{department.id}}>{{department.name}}</option>
-                </select>
-            </div>
-            <div class="d-flex flex-column">
-                <label class="text-white" for="surname">Compañía</label>
-                <select class="custom-select" aria-label="Selecciona la compañia">
-                    <option *ngFor="let company of companies" value={{company.id}}>{{company.activity}}</option>
-                </select>
-            </div>
-        </div>
-        <div class="d-flex justify-content-around mt-4">
-            <button type="submit" class="btn btn-light" (click)="sendData()">
-                Añadir
-            </button>
-            <button type="button" class="btn btn-light" (click)="sendCancelAction()">
-                Cancelar
-            </button>
-        </div>
-    </form>
+  <form class="bg-success rounded p-3 col-7" [formGroup]="formControl">
+    <h3 class="text-center text-white font-weight-bold">
+      {{ pageType }} soldado
+    </h3>
+    <div class="form-group d-flex justify-content-around mt-3">
+      <div class="d-flex flex-column">
+        <label class="text-white" for="name">Nombre</label>
+        <input
+          required
+          formControlName="name"
+          #name
+          type="text"
+          class="form-control"
+          placeholder="Inserte un nombre"
+        />
+      </div>
+      <div class="d-flex flex-column">
+        <label class="text-white" for="surname">Apellido</label>
+        <input
+          required
+          formControlName="surname"
+          #surname
+          type="text"
+          class="form-control"
+          placeholder="Inserte apellido"
+        />
+      </div>
+    </div>
+    <div class="form-group d-flex justify-content-around">
+      <div class="d-flex flex-column">
+        <label class="text-white" for="rank">Rango</label>
+        <input
+          required
+          formControlName="rank"
+          #rank
+          type="text"
+          class="form-control"
+          id="rank"
+          placeholder="Inserte el rango"
+        />
+      </div>
+      <div class="d-flex flex-column">
+        <label class="text-white" for="barracks">Cuartel</label>
+        <select
+          class="custom-select"
+          aria-label="Selecciona el cuartel"
+          #barrack
+        >
+          <option *ngFor="let barrack of barracks" value="{{ barrack.id }}">
+            {{ barrack.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group d-flex justify-content-around">
+      <div class="d-flex flex-column">
+        <label class="text-white" for="surname">Cuerpo</label>
+        <select
+          class="custom-select"
+          aria-label="Selecciona el cuerpo"
+          #department
+        >
+          <option
+            *ngFor="let department of departments"
+            value="{{ department.id }}"
+          >
+            {{ department.name }}
+          </option>
+        </select>
+      </div>
+      <div class="d-flex flex-column">
+        <label class="text-white" for="surname">Compañía</label>
+        <select
+          class="custom-select"
+          aria-label="Selecciona la compañia"
+          #company
+        >
+          <option *ngFor="let company of companies" value="{{ company.id }}">
+            {{ company.activity }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around mt-4">
+      <button
+        type="submit"
+        class="btn btn-light"
+        (click)="
+          sendData({
+            id: '',
+            name: name.value,
+            surname: surname.value,
+            rank: rank.value,
+            barrack: { id: barrack.value, name: '', location: '' },
+            department: { id: department.value, name: '' },
+            company: { id: company.value, activity: '' },
+            services: [{ id: '', serviceId: '', description: '', date: '' }]
+          })
+        "
+      >
+        Añadir
+      </button>
+      <button type="button" class="btn btn-light" (click)="sendCancelAction()">
+        Cancelar
+      </button>
+    </div>
+  </form>
 </div>
