@@ -7,6 +7,7 @@ import { SoldierEditComponent } from './pages/soldier-edit/soldier-edit.componen
 import { SoldiersHomeComponent } from './pages/soldiers-home/soldiers-home.component';
 import { SoldierAddServiceComponent } from './pages/soldier-add-service/soldier-add-service.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { SoldiersAddServiceFormComponent } from './components/soldiers-add-service-form/soldiers-add-service-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     SoldierEditComponent,
     SoldierAddServiceComponent,
     DialogComponent,
+    SoldiersAddServiceFormComponent,
   ],
   imports: [SharedModule, SoldiersRouting],
 })
