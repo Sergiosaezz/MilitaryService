@@ -62,6 +62,7 @@ export class SoldierEditComponent implements OnInit {
 
   setValuesToSoldier(soldier: SoldierDTO) {
     soldier.id = this.soldierToUpdate.id;
+    soldier.services = this.soldierToUpdate.services;
     this.soldierToUpdate = soldier;
     this.setBarrack(soldier.barrack.id);
     this.setCompany(soldier.company.id);

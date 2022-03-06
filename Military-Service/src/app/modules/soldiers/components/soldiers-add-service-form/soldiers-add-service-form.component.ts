@@ -10,10 +10,18 @@ import { SoldierDTO } from 'src/app/shared/domain/DTOs/soldier.dto';
 export class SoldiersAddServiceFormComponent implements OnInit {
   @Input() soldier!: SoldierDTO;
   @Input() services!: ServiceDTO[];
-  @Output() serviceToAdd!: EventEmitter<SoldierServiceDTO>;
-  @Output() cancelAction!: EventEmitter<any>;
+  @Output() serviceToAdd = new EventEmitter<SoldierServiceDTO>();
+  @Output() cancelAction = new EventEmitter<any>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  cancel() {
+    this.cancelAction.emit();
+  }
+
+  sendData(soldierService: SoldierServiceDTO) {
+    this.serviceToAdd.emit(soldierService);
+  }
 }

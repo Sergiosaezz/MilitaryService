@@ -47,40 +47,44 @@ export class SoldierAddComponent implements OnInit {
   }
 
   /*TODO: refactoring*/
-  createSoldier(soldier: SoldierDTO) {
-    this.setValuesToSoldier(soldier);
-    setTimeout(() => {
-      this.soldierService.add(soldier);
-    }, 100);
+  async createSoldier(soldier: SoldierDTO) {
+    await this.setValuesToSoldier(soldier);
+    this.soldierService.add(soldier);
     this.goToSoldiersPage();
   }
 
-  setValuesToSoldier(soldier: SoldierDTO) {
+  async setValuesToSoldier(soldier: SoldierDTO) {
     soldier.id = uuid.v4();
     this.soldierToCreate = soldier;
-    this.setBarrack(soldier.barrack.id);
-    this.setCompany(soldier.company.id);
-    this.setDepartment(soldier.department.id);
+    return new Promise((resolve, reject) => {
+      this.setBarrack(soldier.barrack.id).then(() => {
+        this.setCompany(soldier.company.id).then(() => {
+          this.setDepartment(soldier.department.id).then(() => {
+            resolve(true);
+          });
+        });
+      });
+    });
   }
 
-  setBarrack(barrackId: string) {
-    this.barrackService
+  async setBarrack(barrackId: string) {
+    return this.barrackService
       .findOne(barrackId)
       .then(
         (barrack) => (this.soldierToCreate.barrack = barrack as BarrackDTO)
       );
   }
 
-  setCompany(companyId: string) {
-    this.companyService
+  async setCompany(companyId: string) {
+    return this.companyService
       .findOne(companyId)
       .then(
         (company) => (this.soldierToCreate.company = company as CompanyDTO)
       );
   }
 
-  setDepartment(departmentId: string) {
-    this.departmentService
+  async setDepartment(departmentId: string) {
+    return this.departmentService
       .findOne(departmentId)
       .then(
         (department) =>
