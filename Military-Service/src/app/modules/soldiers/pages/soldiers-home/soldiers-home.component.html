@@ -36,7 +36,9 @@
         <button class="btn btn-warning mr-3" routerLink="edit/{{ soldier.id }}">
           Editar
         </button>
-        <button class="btn btn-danger">Borrar</button>
+        <button class="btn btn-danger" (click)="deleteSoldier(soldier)">
+          Borrar
+        </button>
       </td>
     </tr>
   </tbody>
