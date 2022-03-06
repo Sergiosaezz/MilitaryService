@@ -1,37 +1,37 @@
 <table class="table table-hover col">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Rango</th>
-            <th scope="col">Cuartel</th>
-            <th scope="col">Cuerpo</th>
-            <th scope="col">Compañía</th>
-            <th scope="col">Último servicio</th>
-            <th class="d-flex justify-content-between align-items-end" scope="col">
-                <button class="btn btn-success" routerLink="add">
-                    Añadir un soldado
-                </button>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let soldier of soldiers">
-            <td>{{ soldier.name }}</td>
-            <td>{{ soldier.surname }}</td>
-            <td>{{ soldier.rank }}</td>
-            <td>{{ soldier.barrack.name }} - {{soldier.barrack.location}}</td>
-            <td>{{ soldier.department.name }}</td>
-            <td>{{ soldier.company.activity }}</td>
-            <td>{{ soldier.services[0].description }} - {{soldier.services[0].date}} </td>
-            <td>
-                <button class="btn btn-warning mr-3">
-                    Editar
-                </button>
-                <button class="btn btn-danger">
-                    Borrar
-                </button>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Rango</th>
+      <th scope="col">Cuartel</th>
+      <th scope="col">Cuerpo</th>
+      <th scope="col">Compañía</th>
+      <th scope="col">Último servicio</th>
+      <th class="d-flex justify-content-between align-items-end" scope="col">
+        <button class="btn btn-success" routerLink="add">
+          Añadir un soldado
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let soldier of soldiers">
+      <td>{{ soldier.name }}</td>
+      <td>{{ soldier.surname }}</td>
+      <td>{{ soldier.rank }}</td>
+      <td>{{ soldier.barrack.name }} - {{ soldier.barrack.location }}</td>
+      <td>{{ soldier.department.name }}</td>
+      <td>{{ soldier.company.activity }}</td>
+      <td>
+        {{ soldier.services[0].description }} - {{ soldier.services[0].date }}
+      </td>
+      <td>
+        <button class="btn btn-warning mr-3" routerLink="edit/{{ soldier.id }}">
+          Editar
+        </button>
+        <button class="btn btn-danger">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
