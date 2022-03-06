@@ -50,7 +50,7 @@ export class SoldierAddComponent implements OnInit {
   createSoldier(soldier: SoldierDTO) {
     this.setValuesToSoldier(soldier);
     this.soldierService.add(this.soldierToCreate);
-    this.goSoldiersPage();
+    this.goToSoldiersPage();
   }
 
   setValuesToSoldier(soldier: SoldierDTO) {
@@ -85,7 +85,7 @@ export class SoldierAddComponent implements OnInit {
       );
   }
 
-  goSoldiersPage() {
+  goToSoldiersPage() {
     this.router.navigateByUrl('/soldiers');
   }
 }
