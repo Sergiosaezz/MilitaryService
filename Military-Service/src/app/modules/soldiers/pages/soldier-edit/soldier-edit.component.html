@@ -1,1 +1,11 @@
-<p>soldier-edit works!</p>
+<app-soldiers-form
+  *ngIf="soldierToUpdate"
+  [barracks]="allBarracks"
+  [companies]="allCompanies"
+  [departments]="allDepartments"
+  [pageType]="pageName"
+  [soldierValue]="soldierToUpdate"
+  (dataResult)="updateSoldier($event)"
+  (cancelAction)="goToSoldiersPage()"
+>
+</app-soldiers-form>

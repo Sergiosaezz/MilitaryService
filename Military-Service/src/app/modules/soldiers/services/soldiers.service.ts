@@ -10,7 +10,7 @@ export class SoldiersService {
   constructor(private readonly dexieService: DexieService) {}
 
   add(soldier: SoldierDTO) {
-    this.dexieService.soldiersStore.add(soldier);
+    return this.dexieService.soldiersStore.add(soldier);
   }
 
   delete(id: string) {

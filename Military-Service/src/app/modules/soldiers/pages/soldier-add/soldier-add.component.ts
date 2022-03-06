@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
 import { BarracksService } from 'src/app/modules/barracks/services/barracks.service';
 import { CompaniesService } from 'src/app/modules/companies/services/companies.service';
 import { DepartmentsService } from 'src/app/modules/departments/services/departments.service';
@@ -9,14 +8,15 @@ import { CompanyDTO } from 'src/app/shared/domain/DTOs/company.dto';
 import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
 import { SoldierDTO } from 'src/app/shared/domain/DTOs/soldier.dto';
 import { SoldiersService } from '../../services/soldiers.service';
+import * as uuid from 'uuid';
+import { ADD_FORM } from 'src/app/common/constants';
 
 @Component({
   selector: 'app-soldier-add',
   templateUrl: './soldier-add.component.html',
-  styleUrls: ['./soldier-add.component.css'],
 })
 export class SoldierAddComponent implements OnInit {
-  pageName = 'Añadir';
+  pageName = ADD_FORM;
   allBarracks!: BarrackDTO[];
   allCompanies!: CompanyDTO[];
   allDepartments!: DepartmentDTO[];
@@ -46,14 +46,17 @@ export class SoldierAddComponent implements OnInit {
       .subscribe((departmentsData) => (this.allDepartments = departmentsData));
   }
 
-  /*TODO: hay asincronismo que hay que corregir, se añade el soldado antes de que se seteen los valores.*/
+  /*TODO: refactoring*/
   createSoldier(soldier: SoldierDTO) {
     this.setValuesToSoldier(soldier);
-    this.soldierService.add(this.soldierToCreate);
+    setTimeout(() => {
+      this.soldierService.add(soldier);
+    }, 100);
     this.goToSoldiersPage();
   }
 
   setValuesToSoldier(soldier: SoldierDTO) {
+    soldier.id = uuid.v4();
     this.soldierToCreate = soldier;
     this.setBarrack(soldier.barrack.id);
     this.setCompany(soldier.company.id);

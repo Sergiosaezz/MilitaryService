@@ -1,8 +1,6 @@
+import { ViewFlags } from '@angular/compiler/src/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BarracksService } from 'src/app/modules/barracks/services/barracks.service';
-import { CompaniesService } from 'src/app/modules/companies/services/companies.service';
-import { DepartmentsService } from 'src/app/modules/departments/services/departments.service';
 import { BarrackDTO } from 'src/app/shared/domain/DTOs/barrack.dto';
 import { CompanyDTO } from 'src/app/shared/domain/DTOs/company.dto';
 import { DepartmentDTO } from 'src/app/shared/domain/DTOs/department.dto';
@@ -53,8 +51,7 @@ export class SoldiersFormComponent implements OnInit {
   }
 
   sendData(soldier: SoldierDTO) {
-    this.soldierValue = soldier;
-    this.dataResult.emit(this.soldierValue);
+    this.dataResult.emit(soldier);
   }
 
   sendCancelAction() {
