@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+    <h2>Estas seguro de eliminar el cuartel:</h2>
+    <p>{{ barrackToDelete.name }}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="deleteBarrack()" cdkFocusInitial>Si</button>
+    <button mat-button (click)="cancelDelete()">No</button>
+</div>

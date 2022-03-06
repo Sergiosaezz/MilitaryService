@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DepartmentsRouting } from './departments-routing.module';
-import { DepartmentsHomeComponent } from './components/departments-home/departments-home.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DepartmentsHomeComponent } from './departments-home/departments-home.component';
+import { FormDepartmentComponent } from './components/form-department/form-department.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
-  declarations: [DepartmentsHomeComponent],
-  imports: [CommonModule, DepartmentsRouting],
+  declarations: [DepartmentsHomeComponent, FormDepartmentComponent, DialogComponent],
+  imports: [SharedModule, DepartmentsRouting],
 })
 export class DepartmentsModule {}

@@ -1,0 +1,2 @@
+<app-soldiers-add-service-form *ngIf="soldier" [soldier]="soldier" [services]="services"
+    (cancelAction)="goToSoldiersPage()" (serviceToAdd)="createSoldierService($event)"> </app-soldiers-add-service-form>

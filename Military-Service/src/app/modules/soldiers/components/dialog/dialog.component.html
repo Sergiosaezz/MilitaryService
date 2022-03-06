@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <h2>Estas seguro de eliminar el soldado:</h2>
+  <div class="d-flex flex-column">
+    <div>{{ soldierToDelete.name }} - {{soldierToDelete.surname}}</div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="deleteService()" cdkFocusInitial>Si</button>
+  <button mat-button (click)="cancelDelete()">No</button>
+</div>

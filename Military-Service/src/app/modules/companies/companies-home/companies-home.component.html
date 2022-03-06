@@ -1,0 +1,32 @@
+<div [ngClass]="{
+    'd-flex align-items-start': isFormActive
+  }" class="mx-5">
+  <table class="table table-hover col-6">
+    <thead>
+      <tr>
+        <th scope="col">Compañía</th>
+        <th class="d-flex justify-content-between align-items-end" scope="col">
+          <button class="btn btn-success" (click)="activateAddForm()">
+            Añadir una compañía
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companies">
+        <td>{{ company.activity }}</td>
+        <td>
+          <button class="btn btn-warning mr-3" (click)="activateEditForm(company)">
+            Editar
+          </button>
+          <button class="btn btn-danger" (click)="deleteCompany(company)">
+            Borrar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-form-company class="col-6 d-flex align-items-center justify-content-around" *ngIf="isFormActive"
+    [pageType]="formType" [companyValue]="companyToEdit" (dataResult)="addOrUpdateCompany($event)"
+    (cancelAction)="closeForm()"></app-form-company>
+</div>

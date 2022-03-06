@@ -1,0 +1,29 @@
+<form class="bg-success rounded p-3 col-6" [formGroup]="formControl">
+  <h3 class="text-center text-white font-weight-bold">
+    {{ pageType }} Servicio
+  </h3>
+  <div class="form-group col">
+    <label class="text-white" for="name">Descripcion del servicio:</label>
+    <input
+      formControlName="description"
+      type="text"
+      class="form-control"
+      #description
+      placeholder="Descripcion"
+    />
+  </div>
+
+  <div class="d-flex justify-content-around">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="sendData(description.value)"
+    >
+      Añadir
+    </button>
+
+    <button type="button" class="btn btn-light" (click)="sendCancelAction()">
+      Cancelar
+    </button>
+  </div>
+</form>

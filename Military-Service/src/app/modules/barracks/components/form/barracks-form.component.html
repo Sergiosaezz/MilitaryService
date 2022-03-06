@@ -1,0 +1,23 @@
+<form class="bg-success rounded p-3 col-6" [formGroup]="formControl">
+    <h3 class="text-center text-white font-weight-bold">
+        {{ pageType }} cuartel
+    </h3>
+    <div class="form-group col">
+        <label class="text-white" for="name">Nombre</label>
+        <input required formControlName="name" #name type="text" class="form-control" id="name"
+            placeholder="Inserte un nombre" />
+    </div>
+    <div class="form-group col">
+        <label class="text-white" for="location">Localización</label>
+        <input required formControlName="location" #location type="text" class="form-control" id="location"
+            placeholder="Inserte la localización" />
+    </div>
+    <div class="d-flex justify-content-around">
+        <button type="submit" class="btn btn-light" (click)="sendData(location.value, name.value)">
+            Añadir
+        </button>
+        <button type="button" class="btn btn-light" (click)="sendCancelAction()">
+            Cancelar
+        </button>
+    </div>
+</form>

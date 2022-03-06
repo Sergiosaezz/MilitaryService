@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './common/components/home/home.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 const routes: Routes = [
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: 'services',
     loadChildren: () =>
-      import('./modules/services/services.module').then(
+      import('./modules/military-services/services.module').then(
         (m) => m.ServicesModule
       ),
   },

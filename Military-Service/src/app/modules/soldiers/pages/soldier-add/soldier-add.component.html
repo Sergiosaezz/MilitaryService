@@ -1,0 +1,9 @@
+<app-soldiers-form
+  [barracks]="allBarracks"
+  [companies]="allCompanies"
+  [departments]="allDepartments"
+  [pageType]="pageName"
+  (dataResult)="createSoldier($event)"
+  (cancelAction)="goToSoldiersPage()"
+>
+</app-soldiers-form>

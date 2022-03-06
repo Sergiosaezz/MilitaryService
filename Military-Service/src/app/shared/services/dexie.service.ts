@@ -37,42 +37,72 @@ export class DexieService extends Dexie {
   }
 
   loadBarracks() {
-    this.mockService.loadBarracks().subscribe((barracks) => {
-      for (let barrack of barracks) {
-        this.barracksStore.add(barrack);
-      }
+    this.existBarracks().then((exist) => {
+      if (!exist)
+        this.mockService.loadBarracks().subscribe((barracks) => {
+          this.barracksStore.bulkPut(barracks);
+        });
     });
+  }
+
+  async existBarracks() {
+    const barracks = await this.barracksStore.count();
+    return barracks > 0 ? true : false;
   }
 
   loadCompanies() {
-    this.mockService.loadCompanies().subscribe((companies) => {
-      for (let company of companies) {
-        this.companiesStore.add(company);
-      }
+    this.existCompanies().then((exist) => {
+      if (!exist)
+        this.mockService.loadCompanies().subscribe((companies) => {
+          this.companiesStore.bulkPut(companies);
+        });
     });
+  }
+
+  async existCompanies() {
+    const companies = await this.companiesStore.count();
+    return companies > 0 ? true : false;
   }
 
   loadDepartments() {
-    this.mockService.loadDepartments().subscribe((departments) => {
-      for (let department of departments) {
-        this.departmentsStore.add(department);
-      }
+    this.existDepartments().then((exist) => {
+      if (!exist)
+        this.mockService.loadDepartments().subscribe((departments) => {
+          this.departmentsStore.bulkPut(departments);
+        });
     });
+  }
+
+  async existDepartments() {
+    const departments = await this.departmentsStore.count();
+    return departments > 0 ? true : false;
   }
 
   loadServices() {
-    this.mockService.loadServices().subscribe((services) => {
-      for (let service of services) {
-        this.servicesStore.add(service);
-      }
+    this.existServices().then((exist) => {
+      if (!exist)
+        this.mockService.loadServices().subscribe((services) => {
+          this.servicesStore.bulkPut(services);
+        });
     });
   }
 
+  async existServices() {
+    const services = await this.servicesStore.count();
+    return services > 0 ? true : false;
+  }
+
   loadSoldiers() {
-    this.mockService.loadSoldiers().subscribe((soldiers) => {
-      for (let soldier of soldiers) {
-        this.soldiersStore.add(soldier);
-      }
+    this.existSoldiers().then((exist) => {
+      if (!exist)
+        this.mockService.loadSoldiers().subscribe((soldiers) => {
+          this.soldiersStore.bulkPut(soldiers);
+        });
     });
+  }
+
+  async existSoldiers() {
+    const soldiers = await this.soldiersStore.count();
+    return soldiers > 0 ? true : false;
   }
 }
