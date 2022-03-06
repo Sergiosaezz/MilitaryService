@@ -27,6 +27,12 @@
         {{ soldier.services[0].description }} - {{ soldier.services[0].date }}
       </td>
       <td>
+        <button
+          class="btn btn-primary mr-3"
+          routerLink="new-service/{{ soldier.id }}"
+        >
+          Asignar servicio
+        </button>
         <button class="btn btn-warning mr-3" routerLink="edit/{{ soldier.id }}">
           Editar
         </button>
