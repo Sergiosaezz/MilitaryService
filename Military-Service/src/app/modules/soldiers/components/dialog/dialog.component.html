@@ -1,14 +1,7 @@
 <div mat-dialog-content>
   <h2>Estas seguro de eliminar el soldado:</h2>
   <div class="d-flex flex-column">
-    <div>nombre: {{ soldierToDelete.name }}</div>
-    <div>apellido: {{ soldierToDelete.surname }}</div>
-    <div>rango: {{ soldierToDelete.rank }}</div>
-    <div>
-      {{ soldierToDelete.barrack.name }}-{{ soldierToDelete.barrack.location }}
-    </div>
-    <div>cuerpo: {{ soldierToDelete.department.name }}</div>
-    <div>compañia: {{ soldierToDelete.company.activity }}</div>
+    <div>{{ soldierToDelete.name }} - {{soldierToDelete.surname}}</div>
   </div>
 </div>
 <div mat-dialog-actions>
