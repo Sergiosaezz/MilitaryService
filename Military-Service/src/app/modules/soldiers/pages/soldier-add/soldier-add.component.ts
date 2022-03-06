@@ -57,13 +57,10 @@ export class SoldierAddComponent implements OnInit {
     soldier.id = uuid.v4();
     this.soldierToCreate = soldier;
     return new Promise((resolve, reject) => {
-      this.setBarrack(soldier.barrack.id).then(() => {
-        this.setCompany(soldier.company.id).then(() => {
-          this.setDepartment(soldier.department.id).then(() => {
-            resolve(true);
-          });
-        });
-      });
+      this.setBarrack(soldier.barrack.id)
+        .then(() => this.setCompany(soldier.company.id))
+        .then(() => this.setDepartment(soldier.department.id))
+        .then(() => resolve(true));
     });
   }
 
@@ -75,7 +72,7 @@ export class SoldierAddComponent implements OnInit {
       );
   }
 
-  async setCompany(companyId: string) {
+  setCompany(companyId: string) {
     return this.companyService
       .findOne(companyId)
       .then(
