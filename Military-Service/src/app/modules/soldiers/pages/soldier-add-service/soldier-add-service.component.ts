@@ -7,7 +7,6 @@ import { SoldiersService } from '../../services/soldiers.service';
 @Component({
   selector: 'app-soldier-add-service',
   templateUrl: './soldier-add-service.component.html',
-  styleUrls: ['./soldier-add-service.component.css'],
 })
 export class SoldierAddServiceComponent implements OnInit {
   soldier!: SoldierDTO;
