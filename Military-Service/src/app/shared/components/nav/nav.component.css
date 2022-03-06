@@ -6,3 +6,11 @@ nav {
   background-color: rgb(98, 98, 243);
   color: white;
 }
+
+nav li {
+  transition: all 300ms;
+}
+
+nav li:hover {
+  transform: scale(1.2);
+}

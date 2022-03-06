@@ -64,29 +64,32 @@ export class SoldierEditComponent implements OnInit {
     soldier.id = this.soldierToUpdate.id;
     soldier.services = this.soldierToUpdate.services;
     this.soldierToUpdate = soldier;
-    this.setBarrack(soldier.barrack.id);
-    this.setCompany(soldier.company.id);
-    this.setDepartment(soldier.department.id);
+    return new Promise((resolve, reject) => {
+      this.setBarrack(soldier.barrack.id)
+        .then(() => this.setCompany(soldier.company.id))
+        .then(() => this.setDepartment(soldier.department.id))
+        .then(() => resolve(true));
+    });
   }
 
-  setBarrack(barrackId: string) {
-    this.barrackService
+  async setBarrack(barrackId: string) {
+    return this.barrackService
       .findOne(barrackId)
       .then(
         (barrack) => (this.soldierToUpdate.barrack = barrack as BarrackDTO)
       );
   }
 
-  setCompany(companyId: string) {
-    this.companyService
+  async setCompany(companyId: string) {
+    return this.companyService
       .findOne(companyId)
       .then(
         (company) => (this.soldierToUpdate.company = company as CompanyDTO)
       );
   }
 
-  setDepartment(departmentId: string) {
-    this.departmentService
+  async setDepartment(departmentId: string) {
+    return this.departmentService
       .findOne(departmentId)
       .then(
         (department) =>

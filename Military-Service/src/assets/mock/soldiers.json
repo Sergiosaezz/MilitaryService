@@ -23,13 +23,13 @@
           "id": "002",
           "serviceId": "002",
           "description": "Limpieza armamento",
-          "date": "01/02/2022"
+          "date": "2022-01-02"
         },
         {
           "id": "001",
           "serviceId": "001",
           "description": "Guardia",
-          "date": "01/01/2022"
+          "date": "2022-03-14"
         }
       ]
     },
@@ -56,13 +56,13 @@
           "id": "003",
           "serviceId": "001",
           "description": "Guardia",
-          "date": "01/01/2022"
+          "date": "2022-10-20"
         },
         {
           "id": "004",
           "serviceId": "003",
           "description": "Adiestramiento de peloton",
-          "date": "01/02/2022"
+          "date": "2022-12-31"
         }
       ]
     },
@@ -91,13 +91,13 @@
           "id": "006",
           "serviceId": "004",
           "description": "Tactica militar",
-          "date": "22/02/2022"
+          "date": "2022-05-22"
         },
         {
           "id": "005",
           "serviceId": "001",
           "description": "Guardia",
-          "date": "01/01/2022"
+          "date": "2022-07-20"
         }
       ]
     },
@@ -125,13 +125,13 @@
           "id": "008",
           "serviceId": "003",
           "description": "Adiestramiento de peloton",
-          "date": "12/03/2022"
+          "date": "2022-11-20"
         },
         {
           "id": "007",
           "serviceId": "001",
           "description": "Guardia",
-          "date": "05/01/2021"
+          "date": "2021-06-06"
         }
       ]
     }
